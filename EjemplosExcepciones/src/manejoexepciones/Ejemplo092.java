@@ -21,20 +21,16 @@ public class Ejemplo092 {
             try {
                 System.out.println("Ingrese un país: ");
                 String pais = entrada.nextLine();
-                
-                if (pais.isEmpty()) {
-                    throw new IllegalArgumentException("El nombre del país no "
-                            + "puede estar vacío.");
-                }
 
                 char primerCaracter = Character.toUpperCase(pais.charAt(0));
 
                 if (primerCaracter == 'A' || primerCaracter == 'E' || 
                     primerCaracter == 'I' || primerCaracter == 'O' || 
                     primerCaracter == 'U') {
-                    System.out.println("El país comienza con una vocal.");
+                    throw new Exception("El país no comienza con una consonante.");
                 } else {
-                    throw new Exception("El país no comienza con una vocal.");
+                    System.out.printf("El pais es: %s\n", pais);
+                    bandera = false;
                 }
             } catch (Exception e) {
                 System.out.println("Excepción: " + e.getMessage());
